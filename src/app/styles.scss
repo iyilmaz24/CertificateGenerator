@@ -2,7 +2,8 @@ $color60percentDark: #1b1e21;
 $color60perecentLight: #e8ecee;
 $colorWhiteBg: #fff;
 
-$color30percent: linear-gradient(to bottom right, #313438, #1b1e21);
+$color30percentGradient: linear-gradient(to bottom right, #313438, #1b1e21);
+$color30percent: #313438;
 $color10percentDark: #131313;
 
 $colorFontBlack: #131313;
@@ -12,4 +13,15 @@ $colorFontGray: #8c9198;
 .default-app {
   color: $colorFontBlack;
   background-color: $color60perecentLight;
+}
+
+.placeholder {
+  background-color: $colorWhiteBg;
+  color: $colorFontGray;
+}
+
+.overflow-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

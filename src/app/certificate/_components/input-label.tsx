@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { TSearchParams } from "../react-nextjs/generate/page";
+import { TSearchParams } from "@/lib/validations";
 
 type inputAndLabelProps = {
   id: string;

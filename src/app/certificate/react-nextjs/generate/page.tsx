@@ -1,17 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import z from "zod";
 import { useState } from "react";
 import InputAndLabel from "../../_components/input-label";
 import { useRouter } from "next/navigation";
-
-const schema = z.object({
-  course: z.string().min(1).max(50),
-  firstName: z.string().min(1).max(15),
-  lastName: z.string().min(1).max(15),
-});
-export type TSearchParams = z.infer<typeof schema>;
+import { TSearchParams } from "@/lib/validations";
+import { VIEW_URL } from "@/lib/constants";
 
 export default function Page() {
   const [searchParams, setSearchParams] = useState<TSearchParams>({
@@ -19,7 +13,6 @@ export default function Page() {
     firstName: "",
     lastName: "",
   });
-
   const router = useRouter();
 
   const handleGenerate = () => {
@@ -27,8 +20,9 @@ export default function Page() {
       ...searchParams,
     });
 
-    console.log(newSearchParams.toString());
-    router.push(`/?${newSearchParams.toString()}`);
+    console.log(`${VIEW_URL}?${newSearchParams.toString()}`);
+
+    router.replace(`${VIEW_URL}?${newSearchParams.toString()}`);
   };
 
   return (

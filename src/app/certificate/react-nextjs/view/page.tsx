@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@/components/ui/button";
 import cert_background from "/public/react-nextjs-cert.png";
-import { DownloadIcon, CopyIcon } from "@radix-ui/react-icons";
+import { BASE_URL, VIEW_URL } from "@/lib/constants";
+import CopyButton from "../../_components/copy-button";
+import DownloadButton from "../../_components/download-button";
 
 type PageProps = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -9,8 +10,15 @@ type PageProps = {
 const iconButtonStyles = "bn hover-bg-light-gray pv2 ph3 grow";
 
 export default function Page({ searchParams }: PageProps) {
-  const { firstName, lastName } = searchParams;
-  console.log(firstName, lastName);
+  const { firstName, lastName, course } = searchParams;
+
+  const rebuiltSearchParams = new URLSearchParams({
+    firstName: firstName as string,
+    lastName: lastName as string,
+    course: course as string,
+  }).toString();
+
+  const certificateUrl = BASE_URL + VIEW_URL + "?" + rebuiltSearchParams;
 
   return (
     <main className="vw-100 vh-100 flex flex-column items-center">
@@ -25,23 +33,13 @@ export default function Page({ searchParams }: PageProps) {
             className="w-100 placeholder br3 tc
             flex justify-between items-center"
           >
-            <p className="w-90 overflow-text pl3">
-              http://localhost:3000/certificate/react-nextjs/view
-            </p>
-            <Button asChild>
-              <CopyIcon
-                className={iconButtonStyles}
-                width={"1rem"}
-                height={"1rem"}
-              />
-            </Button>
-            <Button asChild>
-              <DownloadIcon
-                className={iconButtonStyles}
-                width={"1rem"}
-                height={"1rem"}
-              />
-            </Button>
+            <p className="w-90 overflow-text pl3">{certificateUrl}</p>
+
+            <CopyButton
+              iconButtonStyles={iconButtonStyles}
+              certificateUrl={certificateUrl}
+            />
+            <DownloadButton iconButtonStyles={iconButtonStyles} />
           </span>
         </div>
       </div>

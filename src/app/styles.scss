@@ -25,3 +25,35 @@ $colorFontGray: #8c9198;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.content-block {
+  background-color: $colorWhiteBg;
+  border-radius: 1rem;
+}
+
+.gradient-background {
+  background-image: linear-gradient(
+    270deg,
+    #21d789 0%,
+    #18b2b7 25%,
+    #408bcf 65%,
+    #8c5aff 100%
+  );
+}
+
+.gradient-button {
+  color: $colorFontWhite;
+  border-radius: 0.3rem;
+  border-width: 0.06rem;
+  padding: 0.5rem 1rem;
+  font-weight: 200;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+.gradient-button::after {
+  content: "Generate";
+}
+.gradient-button:hover::after {
+  content: "Congratulations!";
+  font-size: 0.9rem;
+}

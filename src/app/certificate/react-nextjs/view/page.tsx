@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import cert_background from "/public/react-nextjs-cert.png";
 import { DownloadIcon, CopyIcon } from "@radix-ui/react-icons";
 
-const iconButtonStyles = "bn hover-bg-light-gray pv2 ph3";
+const iconButtonStyles = "bn hover-bg-light-gray pv2 ph3 grow";
 
 export default function Page() {
   return (

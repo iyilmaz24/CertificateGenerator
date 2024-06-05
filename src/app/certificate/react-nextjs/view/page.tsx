@@ -23,12 +23,35 @@ export default function Page({ searchParams }: PageProps) {
   return (
     <main className="vw-100 vh-100 flex flex-column items-center">
       <div
-        className="w-90 h-90 flex flex-column justify-center items-center"
-        style={{ maxWidth: "min(800px, 95%)", height: "auto" }} // critical to scaling/resizing
+        className="w-90 h-90 flex flex-column justify-center items-center" // w-90, h-90 for natural padding
+        style={{ maxWidth: "min(800px, 95%)", height: "74%" }} // 1.0 x 0.95 = 0.95
+        // 0.7725 x 0.95 = 0.733875, allows certificate resizing when window is resizing
       >
-        <img className="ma4 mt5" src={cert_background.src} alt="Certificate" />
+        <div
+          id="section-to-print"
+          className="flex flex-col justify-center items-center ma4 mt5"
+          style={{
+            backgroundImage: `url(${cert_background.src})`,
+            minWidth: "100%", // 2000px / 2000px = 1
+            minHeight: "77%", // 1545px / 2000px = 0.7725
+            backgroundSize: "contain", // contain, so that the image is resized to fit container
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "10px",
+            }}
+          >
+            {firstName + " " + lastName}
+          </span>
+        </div>
 
-        <div className="flex justify-between items-center f7 w-100">
+        <div
+          id="section-to-exclude"
+          className="flex justify-between items-center f7 w-100"
+        >
           <span
             className="w-100 placeholder br3 tc
             flex justify-between items-center"

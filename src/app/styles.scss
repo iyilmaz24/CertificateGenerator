@@ -57,3 +57,28 @@ $colorFontGray: #8c9198;
   content: "Congratulations!";
   font-size: 0.9rem;
 }
+
+// style rules for printing the certificate
+@media print {
+  #section-to-print {
+    visibility: visible;
+    position: center;
+    left: 0;
+    top: 0;
+  }
+  #section-to-exclude {
+    display: none;
+  }
+}
+@page {
+  size: fit-content;
+  margin: 0;
+}
+.print-certificate {
+}
+* {
+  // allows to print background images by default (browser default is no background images)
+  -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
+  color-scheme: exact !important; /* Firefox 48 – 96 */
+  print-color-adjust: exact !important; /* Firefox 97+, Safari 15.4+ */
+}

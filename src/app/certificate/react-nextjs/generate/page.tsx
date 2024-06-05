@@ -20,8 +20,6 @@ export default function Page() {
       ...searchParams,
     });
 
-    console.log(`${VIEW_URL}?${newSearchParams.toString()}`);
-
     router.replace(`${VIEW_URL}?${newSearchParams.toString()}`);
   };
 

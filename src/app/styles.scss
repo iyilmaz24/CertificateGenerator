@@ -60,22 +60,24 @@ $colorFontGray: #8c9198;
 
 // style rules for printing the certificate
 @media print {
-  #section-to-print {
+  .section-to-print {
     visibility: visible;
     position: center;
     left: 0;
     top: 0;
   }
-  #section-to-exclude {
+  .section-to-exclude {
     display: none;
+  }
+  body {
+    background-color: white;
   }
 }
 @page {
-  size: fit-content;
-  margin: 0;
+  size: auto;
+  margin-top: 0mm;
+  margin-bottom: 0mm;
   background-color: white;
-}
-.print-certificate {
 }
 * {
   // allows to print background images by default (browser default is no background images)

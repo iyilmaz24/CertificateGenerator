@@ -29,7 +29,7 @@ export default function Page({ searchParams }: PageProps) {
       >
         <div
           id="section-to-print"
-          className="flex flex-col justify-center items-center ma4 mt5"
+          className="flex flex-col justify-center items-center mt5"
           style={{
             backgroundImage: `url(${cert_background.src})`,
             minWidth: "100%", // 2000px / 2000px = 1
@@ -50,7 +50,7 @@ export default function Page({ searchParams }: PageProps) {
 
         <div
           id="section-to-exclude"
-          className="flex justify-between items-center f7 w-100"
+          className="flex justify-between items-center f7 w-100 ma4"
         >
           <span
             className="w-100 placeholder br3 tc

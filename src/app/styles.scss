@@ -69,7 +69,10 @@ $colorFontGray: #8c9198;
   .section-to-exclude {
     display: none;
   }
-  body {
+  #root {
+    background-color: white;
+  }
+  .default-app {
     background-color: white;
   }
 }
